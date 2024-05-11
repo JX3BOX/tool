@@ -62,6 +62,8 @@
                 @current-change="changePage"
             ></el-pagination>
         </div>
+
+        <design-task v-model="showDesignTask" :post="currentPost"></design-task>
     </ListLayout>
 </template>
 <script>
@@ -71,6 +73,10 @@ import { publishLink } from "@jx3box/jx3box-common/js/utils";
 import { getPosts } from "@/service/post";
 import recTable from "@/components/list/rec_table.vue";
 import ListLayoutVue from "@/layouts/ListLayout.vue";
+import {getDesignLog} from "@/service/design";
+import DesignTask from "@jx3box/jx3box-common-ui/src/bread/DesignTask.vue";
+import bus from "@/utils/bus";
+import User from "@jx3box/jx3box-common/js/user";
 export default {
     name: "Index",
     props: [],
@@ -90,6 +96,9 @@ export default {
             mark: "", //筛选模式
             client: this.$store.state.client, //版本选择
             search: "", //搜索字串
+
+            showDesignTask: false,
+            currentPost: {},
         };
     },
     computed: {
@@ -169,7 +178,7 @@ export default {
 
             this.loading = true;
             return getPosts(query)
-                .then((res) => {
+                .then(async(res) => {
                     if (appendMode) {
                         this.data = this.data.concat(res.data?.data?.list);
                     } else {
@@ -177,6 +186,17 @@ export default {
                     }
                     this.total = res.data?.data?.total;
                     this.pages = res.data?.data?.pages;
+
+                    if (User.hasPermission('push_banner') && !this.isPhone) {
+                        const ids = this.data.map(item => item.ID);
+                        const logs = await getDesignLog({ ids: ids.join(',') }).then(res => res.data.data);
+
+                        this.data = this.data.map(item => {
+                            const log = logs.find(log => log.source_id == item.ID) || null;
+                            this.$set(item, 'log', log);
+                            return item;
+                        });
+                    }
                 })
                 .finally(() => {
                     this.loading = false;
@@ -246,11 +266,17 @@ export default {
             },
         },
     },
-    mounted: function () {},
+    mounted: function () {
+        bus.on("design-task", (post) => {
+            this.currentPost = post;
+            this.showDesignTask = true;
+        });
+    },
     components: {
         listItem,
         recTable,
         ListLayout: ListLayoutVue,
+        DesignTask,
     },
 };
 </script>
