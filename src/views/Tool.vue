@@ -189,7 +189,7 @@ export default {
 
                     if (User.hasPermission('push_banner') && !this.isPhone) {
                         const ids = this.data.map(item => item.ID);
-                        const logs = await getDesignLog({ ids: ids.join(',') }).then(res => res.data.data);
+                        const logs = await getDesignLog({ source_type: "tool", ids: ids.join(',') }).then(res => res.data.data);
 
                         this.data = this.data.map(item => {
                             const log = logs.find(log => log.source_id == item.ID) || null;
