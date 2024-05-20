@@ -4,7 +4,11 @@
             <el-tab-pane v-for="item in wallpaper" :key="item.name" :name="item.name" :label="item.label">
                 <div class="m-wallpaper-box">
                     <figure class="m-wallpaper-item" v-for="img in getPreviewImgs(item)" :key="img.name">
-                        <el-image :src="getThumbnail(img.url)"></el-image>
+                        <el-image :src="getThumbnail(img.url)">
+                            <div slot="error" class="image-slot">
+                                <i class="el-icon-loading"></i>
+                            </div>
+                        </el-image>
                         <figcaption class="u-img-name">{{ img.name }}</figcaption>
                         <div class="u-sizes">
                             <a
@@ -52,6 +56,7 @@ export default {
             wallpaper: cloneDeep(wallpaper),
             active: "",
             authors: [],
+            type: "jpg",
         };
     },
     computed: {},
@@ -80,7 +85,7 @@ export default {
             return getThumbnail(url, [360, 202]);
         },
         getImgUrl(name, size, imgName) {
-            return `${__cdn}design/wallpaper/${name}/${size}/${imgName}.jpg`;
+            return `${__cdn}design/wallpaper/${name}/${size}/${imgName}.${this.type || "jpg"}`;
         },
         getPreviewImgs(item) {
             return item.schools?.map((school) => {
@@ -97,6 +102,7 @@ export default {
             const item = this.wallpaper.find((item) => item.name == this.active);
             const ids = item.authors?.join(",");
             const res = await getUsers(ids);
+            this.type = item.type;
             this.authors = res;
         },
     },
