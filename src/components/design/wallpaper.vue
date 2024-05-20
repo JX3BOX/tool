@@ -44,38 +44,27 @@
 </template>
 
 <script>
-import wallpaper from "@/assets/data/design/wallpaper.json";
+import { getBreadcrumb } from "@jx3box/jx3box-common/js/api_misc";
 import { getThumbnail, authorLink, showAvatar } from "@jx3box/jx3box-common/js/utils";
 import { getUsers } from "@/service/cms";
 import { __cdn } from "@jx3box/jx3box-common/data/jx3box.json";
-import cloneDeep from "lodash/cloneDeep";
 export default {
     name: "wallpaper",
     data() {
         return {
-            wallpaper: cloneDeep(wallpaper),
+            wallpaper: null,
             active: "",
             authors: [],
             type: "jpg",
         };
     },
-    computed: {},
     watch: {
-        wallpaper: {
-            deep: true,
-            immediate: true,
-            handler() {
-                this.active = this.wallpaper[0]?.name;
-            },
+        active() {
+            this.loadAuthors();
         },
-        active: {
-            immediate: true,
-            handler(val) {
-                if (val) {
-                    this.loadAuthors();
-                }
-            },
-        },
+    },
+    mounted() {
+        this.load();
     },
     methods: {
         authorLink,
@@ -99,11 +88,18 @@ export default {
             return size?.replace("x", "×");
         },
         async loadAuthors() {
+            if (!this.wallpaper) return;
             const item = this.wallpaper.find((item) => item.name == this.active);
             const ids = item.authors?.join(",");
             const res = await getUsers(ids);
             this.type = item.type;
             this.authors = res;
+        },
+        load() {
+            getBreadcrumb("app-design-wallpaper").then((res) => {
+                this.wallpaper = JSON.parse(res || "");
+                this.active = this.wallpaper[0]?.name;
+            });
         },
     },
 };
