@@ -97,8 +97,13 @@ export default {
         },
         load() {
             getBreadcrumb("app-design-wallpaper").then((res) => {
-                this.wallpaper = JSON.parse(res || "");
-                this.active = this.wallpaper[0]?.name;
+                this.wallpaper = JSON.parse(res || "[]");
+                if (this.$route.query.tab) {
+                    const foundItem = this.wallpaper.find((item) => item.name.includes(this.$route.query.tab));
+                    this.active = foundItem?.name ?? this.wallpaper[0]?.name;
+                } else {
+                    this.active = this.wallpaper[0]?.name;
+                }
             });
         },
     },
