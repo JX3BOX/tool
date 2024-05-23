@@ -23,10 +23,10 @@
             </span>
         </el-tab-pane>
 
-        <el-tab-pane label="技术笔札" name="game">
+        <el-tab-pane label="学习笔札" name="game">
             <span slot="label">
                 <img class="u-icon-img" src="@/assets/img/nav/code.png" alt="">
-                <b>技术笔札</b>
+                <b>学习笔札</b>
                 <!-- <em class="u-ready">签约</em> -->
             </span>
         </el-tab-pane>
