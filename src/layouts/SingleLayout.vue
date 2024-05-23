@@ -15,7 +15,7 @@
         >
             <template #op-prepend>
                 <!-- <AdminDirectMessage :user-id="user_id" :sourceId="String(post.ID)" :sourceType="post.post_type"></AdminDirectMessage> -->
-                <AdminDrop v-if="isTeammate" :post="post" :user-id="user_id" />
+                <AdminDrop v-if="isTeammate" :post="post" :user-id="user_id"  :showMove="true"/>
             </template>
             <template #title>
                 <span>{{ title }}</span>
@@ -64,7 +64,7 @@ export default {
             subtypeMap: {
                 1: "工具资源",
                 2: "插件数据",
-                3: "技术笔札",
+                3: "学习笔札",
                 4: "魔盒文档"
             }
         };
