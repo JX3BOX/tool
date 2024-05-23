@@ -55,7 +55,6 @@ export default {
             wallpaper: null,
             active: "",
             authors: [],
-            type: "jpg",
         };
     },
     watch: {
@@ -73,13 +72,13 @@ export default {
             // 16:9 缩略图 360x202
             return getThumbnail(url, [360, 202]);
         },
-        getImgUrl(name, size, imgName) {
-            return `${__cdn}design/wallpaper/${name}/${size}/${imgName}.${this.type || "jpg"}`;
+        getImgUrl(name, size, imgName, type) {
+            return `${__cdn}design/wallpaper/${name}/${size}/${imgName}.${type || "jpg"}`;
         },
         getPreviewImgs(item) {
             return item.schools?.map((school) => {
                 return {
-                    url: this.getImgUrl(item.name, item.sizes[0], school),
+                    url: this.getImgUrl(item.name, item.sizes[0], school, item.type),
                     name: school,
                 };
             });
@@ -90,9 +89,9 @@ export default {
         async loadAuthors() {
             if (!this.wallpaper) return;
             const item = this.wallpaper.find((item) => item.name == this.active);
+            history.replaceState(null, "", `?tab=${item.name}`);
             const ids = item.authors?.join(",");
             const res = await getUsers(ids);
-            this.type = item.type;
             this.authors = res;
         },
         load() {
