@@ -57,6 +57,13 @@ export default {
             authors: [],
         };
     },
+    computed: {
+        type() {
+            const type = this.wallpaper.find((item) => item.name == this.active)?.type;
+            console.log(type)
+            return type || "jpg";
+        },
+    },
     watch: {
         active() {
             this.loadAuthors();
@@ -72,13 +79,13 @@ export default {
             // 16:9 缩略图 360x202
             return getThumbnail(url, [360, 202]);
         },
-        getImgUrl(name, size, imgName, type) {
-            return `${__cdn}design/wallpaper/${name}/${size}/${imgName}.${type || "jpg"}`;
+        getImgUrl(name, size, imgName) {
+            return `${__cdn}design/wallpaper/${name}/${size}/${imgName}.${this.type}`;
         },
         getPreviewImgs(item) {
             return item.schools?.map((school) => {
                 return {
-                    url: this.getImgUrl(item.name, item.sizes[0], school, item.type),
+                    url: this.getImgUrl(item.name, item.sizes[0], school, this.type),
                     name: school,
                 };
             });
