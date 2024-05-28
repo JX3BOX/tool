@@ -11,7 +11,6 @@
                         v-show="item.file"
                         @click="onDownload(item)"
                     >
-                        <!-- :href="resolveImagePath(item.file)" -->
                         <i class="el-icon-download"></i>
                         <span>本地下载</span>
                     </span>
@@ -52,6 +51,7 @@
 <script>
 import { getBreadcrumb } from '@jx3box/jx3box-common/js/api_misc';
 import { resolveImagePath } from "@jx3box/jx3box-common/js/utils";
+import FileSaver from "file-saver"
 export default {
     name: "single_meta",
     props: {
@@ -87,7 +87,6 @@ export default {
         this.loadToolDesc();
     },
     methods: {
-        resolveImagePath,
         loadToolDesc() {
             try {
                 const tips = sessionStorage.getItem("tool_download_warning");
@@ -108,19 +107,9 @@ export default {
             return str.replace(/[\r\n]/g, "<br>");
         },
         onDownload(item) {
-            fetch(resolveImagePath(item.file))
-                .then(response => response.blob())
-                .then(blob => {
-                    const url = window.URL.createObjectURL(blob);
-                    const a = document.createElement('a');
-                    a.style.display = 'none';
-                    a.href = url;
-                    a.download = item.file.split('/').pop();
-                    document.body.appendChild(a);
-                    a.click();
-                    window.URL.revokeObjectURL(url);
-                })
-                .catch(() => alert('An error occurred while downloading the file.'));
+            const url = resolveImagePath(item.file);
+
+            FileSaver.saveAs(url, item.file.split("/").pop());
         },
     },
 };
