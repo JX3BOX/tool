@@ -5,15 +5,16 @@
                 <template v-if="item.mode == 1 || item.mode == undefined">
                     <span class="u-name"><i class="el-icon-box"></i>{{ item.name || "暂无资源" }}</span>
                     <span class="u-remark">{{ item.remark || "" }}</span>
-                    <a
+                    <span
                         class="u-download-btn el-button el-button--primary el-button--small"
-                        :href="resolveImagePath(item.file)"
                         target="_blank"
                         v-show="item.file"
+                        @click="onDownload(item)"
                     >
+                        <!-- :href="resolveImagePath(item.file)" -->
                         <i class="el-icon-download"></i>
                         <span>本地下载</span>
-                    </a>
+                    </span>
                 </template>
                 <template v-if="item.mode == 0">
                     <span class="u-name"><i class="el-icon-box"></i>{{ item.name || "暂无资源" }}</span>
@@ -105,6 +106,21 @@ export default {
         },
         nl2br(str) {
             return str.replace(/[\r\n]/g, "<br>");
+        },
+        onDownload(item) {
+            fetch(resolveImagePath(item.file))
+                .then(response => response.blob())
+                .then(blob => {
+                    const url = window.URL.createObjectURL(blob);
+                    const a = document.createElement('a');
+                    a.style.display = 'none';
+                    a.href = url;
+                    a.download = item.file.split('/').pop();
+                    document.body.appendChild(a);
+                    a.click();
+                    window.URL.revokeObjectURL(url);
+                })
+                .catch(() => alert('An error occurred while downloading the file.'));
         },
     },
 };
