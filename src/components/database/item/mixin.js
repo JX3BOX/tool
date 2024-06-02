@@ -12,7 +12,7 @@ const { __Root, __OriginRoot } = JX3BOX;
 export default {
     props: {
         type: String,
-        data: Object,
+        data: [Object, Array],
         refCount: {
             type: Number,
             default: 0,
