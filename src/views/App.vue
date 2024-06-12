@@ -175,6 +175,21 @@
                             </a>
                         </div>
                     </el-col>
+                    <el-col :span="6">
+                        <div class="u-item">
+                            <a href="https://jx3pve.jx3box.com" target="_blank">
+                                <span class="u-pic">
+                                    <i class="u-icon">
+                                        <img svg-inline :src="getIcon('mall')" />
+                                    </i>
+                                </span>
+                                <span class="u-features">
+                                    <span class="u-name">JX3PVE</span>
+                                    <span class="u-desc">JX3PVE&超级宏</span>
+                                </span>
+                            </a>
+                        </div>
+                    </el-col>
                 </el-row>
             </div>
 
