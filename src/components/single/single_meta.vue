@@ -3,7 +3,7 @@
         <div class="m-single-meta__main">
             <div class="m-meta-item" v-for="item in data" :key="item.name">
                 <template v-if="item.mode == 1 || item.mode == undefined">
-                    <span class="u-name"><i class="el-icon-box"></i>{{ item.name || "暂无资源" }}</span>
+                    <span class="u-name"><i class="el-icon-box"></i>{{ item.name || "未命名文件" }}</span>
                     <span class="u-remark">{{ item.remark || "" }}</span>
                     <span
                         class="u-download-btn el-button el-button--primary el-button--small"
@@ -16,7 +16,7 @@
                     </span>
                 </template>
                 <template v-if="item.mode == 0">
-                    <span class="u-name"><i class="el-icon-box"></i>{{ item.name || "暂无资源" }}</span>
+                    <span class="u-name"><i class="el-icon-box"></i>{{ item.name || "未命名文件" }}</span>
                     <span class="u-remark">{{ item.remark || "" }}</span>
                     <a
                         class="u-download-btn el-button el-button--primary el-button--small"
