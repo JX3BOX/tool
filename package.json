@@ -12,10 +12,10 @@
     },
     "dependencies": {
         "@jx3box/jx3box-comment-ui": "^1.9.9",
-        "@jx3box/jx3box-common": "^8.3.1",
-        "@jx3box/jx3box-common-ui": "^8.9.7",
+        "@jx3box/jx3box-common": "^8.3.3",
+        "@jx3box/jx3box-common-ui": "^8.9.16",
         "@jx3box/jx3box-dict": "^2.0.0",
-        "@jx3box/jx3box-editor": "^2.2.12",
+        "@jx3box/jx3box-editor": "^2.2.15",
         "axios": "^0.19.2",
         "core-js": "^3.4.3",
         "element-ui": "^2.13.0",
