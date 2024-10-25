@@ -19,10 +19,11 @@ import single_meta from "./single_meta.vue";
 
 // 本地数据
 import { getPost } from "../../service/post.js";
-import { getStat, postStat } from "@jx3box/jx3box-common/js/stat";
+import { getStat, postStat, postHistory } from "@jx3box/jx3box-common/js/stat";
 import types from "@/assets/data/tool_types.json";
 import { appKey } from "../../../setting.json";
 import { getAppIcon, getAppID } from "@jx3box/jx3box-common/js/utils";
+import User from "@jx3box/jx3box-common/js/user";
 export default {
     name: "single",
     data: function() {
@@ -58,6 +59,13 @@ export default {
                     this.$store.state.user_id = this.post?.post_author;
 
                     document.title = this.post.post_title;
+
+                    User.isLogin() && postHistory({
+                        source_type: appKey,
+                        source_id: this.id,
+                        link: location.href,
+                        title: this.post.post_title,
+                    });
                 })
                 .finally(() => {
                     this.loading = false;

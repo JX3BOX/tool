@@ -115,7 +115,7 @@ import singlebox from "@/components/cms-single";
 
 // 本地数据
 import { getPost } from "../../service/post.js";
-import { getStat, postStat } from "@jx3box/jx3box-common/js/stat";
+import { getStat, postStat, postHistory } from "@jx3box/jx3box-common/js/stat";
 import { jx3dat_types } from "../../assets/data/types.json";
 import { appKey } from "../../../setting.json";
 import { getAppIcon, getAppID,resolveImagePath, getLink } from "@jx3box/jx3box-common/js/utils";
@@ -221,6 +221,13 @@ export default {
                     this.data = this.post?.post_meta?.data;
 
                     document.title = this.post.post_title;
+
+                    User.isLogin() && postHistory({
+                        source_type: appKey,
+                        source_id: this.id,
+                        link: location.href,
+                        title: this.post.post_title,
+                    });
                 })
                 .finally(() => {
                     this.loading = false;
