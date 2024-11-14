@@ -175,7 +175,7 @@ export default {
                     this.$router
                         .replace({
                             name: val.name,
-                            query: { subtype: "" },
+                            query: { subtype: "", ...val.query },
                         })
                         .catch(() => {});
                 }
