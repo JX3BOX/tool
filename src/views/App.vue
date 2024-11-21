@@ -15,7 +15,7 @@
                             <a href="/app/database/" target="_blank">
                                 <span class="u-pic">
                                     <i class="u-icon">
-                                        <img svg-inline :src="getIcon('database')" />
+                                        <img svg-inline :src="getNewIcon('database')" />
                                     </i>
                                 </span>
                                 <span class="u-features">
@@ -45,7 +45,7 @@
                             <a href="/dbm" target="_blank">
                                 <span class="u-pic">
                                     <i class="u-icon">
-                                        <img svg-inline :src="getIcon('jx3dat')" />
+                                        <img svg-inline :src="getNewIcon('jx3dat')" />
                                     </i>
                                 </span>
                                 <span class="u-features">
@@ -135,7 +135,7 @@
                             <a href="/topic" target="_blank">
                                 <span class="u-pic">
                                     <i class="u-icon">
-                                        <img svg-inline :src="getIcon('topic')" />
+                                        <img svg-inline :src="getNewIcon('topic')" />
                                     </i>
                                 </span>
                                 <span class="u-features">
@@ -150,7 +150,7 @@
                             <a href="/event" target="_blank">
                                 <span class="u-pic">
                                     <i class="u-icon">
-                                        <img svg-inline :src="getIcon('topic')" />
+                                        <img svg-inline :src="getNewIcon('topic')" />
                                     </i>
                                 </span>
                                 <span class="u-features">
@@ -201,7 +201,7 @@
                             <a href="/macro" target="_blank">
                                 <span class="u-pic">
                                     <i class="u-icon">
-                                        <img svg-inline :src="getIcon('macro')" />
+                                        <img svg-inline :src="getNewIcon('macro')" />
                                     </i>
                                 </span>
                                 <span class="u-features">
@@ -216,7 +216,7 @@
                             <a href="/macro/macroeditor" target="_blank">
                                 <span class="u-pic">
                                     <i class="u-icon">
-                                        <img svg-inline :src="getIcon('macroeditor')" />
+                                        <img svg-inline :src="getNewIcon('macroeditor')" />
                                     </i>
                                 </span>
                                 <span class="u-features">
@@ -231,7 +231,7 @@
                             <a href="/macro/talent" target="_blank">
                                 <span class="u-pic">
                                     <i class="u-icon">
-                                        <img svg-inline :src="getIcon('talent')" />
+                                        <img svg-inline :src="getNewIcon('talent')" />
                                     </i>
                                 </span>
                                 <span class="u-features">
@@ -261,7 +261,7 @@
                             <a href="/bps" target="_blank">
                                 <span class="u-pic">
                                     <i class="u-icon">
-                                        <img svg-inline :src="getIcon('bps')" />
+                                        <img svg-inline :src="getNewIcon('bps')" />
                                     </i>
                                 </span>
                                 <span class="u-features">
@@ -321,7 +321,7 @@
                             <a href="/pz" target="_blank">
                                 <span class="u-pic">
                                     <i class="u-icon">
-                                        <img svg-inline :src="getIcon('pz')" />
+                                        <img svg-inline :src="getNewIcon('pz')" />
                                     </i>
                                 </span>
                                 <span class="u-features">
@@ -336,7 +336,7 @@
                             <a href="/jcl" target="_blank">
                                 <span class="u-pic">
                                     <i class="u-icon">
-                                        <img svg-inline :src="getIcon('jcl')" />
+                                        <img svg-inline :src="getNewIcon('jcl')" />
                                     </i>
                                 </span>
                                 <span class="u-features">
@@ -351,7 +351,7 @@
                             <a href="/bps/haste" target="_blank">
                                 <span class="u-pic">
                                     <i class="u-icon">
-                                        <img svg-inline :src="getIcon('haste')" />
+                                        <img svg-inline :src="getNewIcon('haste')" />
                                     </i>
                                 </span>
                                 <span class="u-features">
@@ -366,7 +366,7 @@
                             <a href="/bps/dps" target="_blank">
                                 <span class="u-pic">
                                     <i class="u-icon">
-                                        <img svg-inline :src="getIcon('dps')" />
+                                        <img svg-inline :src="getNewIcon('dps')" />
                                     </i>
                                 </span>
                                 <span class="u-features">
@@ -432,7 +432,7 @@
                             <a href="/fb" target="_blank">
                                 <span class="u-pic">
                                     <i class="u-icon">
-                                        <img svg-inline :src="getIcon('fb')" />
+                                        <img svg-inline :src="getNewIcon('fb')" />
                                     </i>
                                 </span>
                                 <span class="u-features">
@@ -462,7 +462,7 @@
                             <a href="/team" target="_blank">
                                 <span class="u-pic">
                                     <i class="u-icon">
-                                        <img svg-inline :src="getIcon('team')" />
+                                        <img svg-inline :src="getNewIcon('team')" />
                                     </i>
                                 </span>
                                 <span class="u-features">
@@ -477,7 +477,7 @@
                             <a href="/dbm" target="_blank">
                                 <span class="u-pic">
                                     <i class="u-icon">
-                                        <img svg-inline :src="getIcon('dbm')" />
+                                        <img svg-inline :src="getNewIcon('dbm')" />
                                     </i>
                                 </span>
                                 <span class="u-features">
@@ -582,7 +582,7 @@
                             <a href="/battle" target="_blank">
                                 <span class="u-pic">
                                     <i class="u-icon">
-                                        <img svg-inline :src="getIcon('battle')" />
+                                        <img svg-inline :src="getNewIcon('battle')" />
                                     </i>
                                 </span>
                                 <span class="u-features">
@@ -633,7 +633,7 @@
                             <a href="/pvp" target="_blank">
                                 <span class="u-pic">
                                     <i class="u-icon">
-                                        <img svg-inline :src="getIcon('pvp')" />
+                                        <img svg-inline :src="getNewIcon('pvp')" />
                                     </i>
                                 </span>
                                 <span class="u-features">
@@ -648,7 +648,7 @@
                             <a href="/pvp/post" target="_blank">
                                 <span class="u-pic">
                                     <i class="u-icon">
-                                        <img svg-inline :src="getIcon('bps')" />
+                                        <img svg-inline :src="getNewIcon('bps')" />
                                     </i>
                                 </span>
                                 <span class="u-features">
@@ -663,7 +663,7 @@
                             <a href="/pvp/changelog" target="_blank">
                                 <span class="u-pic">
                                     <i class="u-icon">
-                                        <img svg-inline :src="getIcon('dbm')" />
+                                        <img svg-inline :src="getNewIcon('dbm')" />
                                     </i>
                                 </span>
                                 <span class="u-features">
@@ -678,7 +678,7 @@
                             <a href="/pvp/desert" target="_blank">
                                 <span class="u-pic">
                                     <i class="u-icon">
-                                        <img svg-inline :src="getIcon('pvp')" />
+                                        <img svg-inline :src="getNewIcon('pvp')" />
                                     </i>
                                 </span>
                                 <span class="u-features">
@@ -708,7 +708,7 @@
                             <a href="/jcl" target="_blank">
                                 <span class="u-pic">
                                     <i class="u-icon">
-                                        <img svg-inline :src="getIcon('jcl')" />
+                                        <img svg-inline :src="getNewIcon('jcl')" />
                                     </i>
                                 </span>
                                 <span class="u-features">
@@ -729,7 +729,7 @@
                             <a href="/cj" target="_blank">
                                 <span class="u-pic">
                                     <i class="u-icon">
-                                        <img svg-inline :src="getIcon('cj')" />
+                                        <img svg-inline :src="getNewIcon('cj')" />
                                     </i>
                                 </span>
                                 <span class="u-features">
@@ -744,7 +744,7 @@
                             <a href="/item" target="_blank">
                                 <span class="u-pic">
                                     <i class="u-icon">
-                                        <img svg-inline :src="getIcon('item')" />
+                                        <img svg-inline :src="getNewIcon('item')" />
                                     </i>
                                 </span>
                                 <span class="u-features">
@@ -759,7 +759,7 @@
                             <a href="/quest" target="_blank">
                                 <span class="u-pic">
                                     <i class="u-icon">
-                                        <img svg-inline :src="getIcon('quest')" />
+                                        <img svg-inline :src="getNewIcon('quest')" />
                                     </i>
                                 </span>
                                 <span class="u-features">
@@ -774,7 +774,7 @@
                             <a href="/knowledge" target="_blank">
                                 <span class="u-pic">
                                     <i class="u-icon">
-                                        <img svg-inline :src="getIcon('knowledge')" />
+                                        <img svg-inline :src="getNewIcon('knowledge')" />
                                     </i>
                                 </span>
                                 <span class="u-features">
@@ -805,7 +805,7 @@
                             <a href="https://j3cx.com/exam/" target="_blank">
                                 <span class="u-pic">
                                     <i class="u-icon">
-                                        <img svg-inline :src="getIcon('keju')" />
+                                        <img svg-inline :src="getNewIcon('keju')" />
                                     </i>
                                 </span>
                                 <span class="u-features">
@@ -820,7 +820,7 @@
                             <a href="/book" target="_blank">
                                 <span class="u-pic">
                                     <i class="u-icon">
-                                        <img svg-inline :src="getIcon('knowledge')" />
+                                        <img svg-inline :src="getNewIcon('knowledge')" />
                                     </i>
                                 </span>
                                 <span class="u-features">
@@ -835,7 +835,7 @@
                             <a href="/reputation" target="_blank">
                                 <span class="u-pic">
                                     <i class="u-icon">
-                                        <img svg-inline :src="getIcon('reputation')" />
+                                        <img svg-inline :src="getNewIcon('reputation')" />
                                     </i>
                                 </span>
                                 <span class="u-features">
@@ -866,7 +866,7 @@
                             <a href="/pet" target="_blank">
                                 <span class="u-pic">
                                     <i class="u-icon">
-                                        <img svg-inline :src="getIcon('pet')" />
+                                        <img svg-inline :src="getNewIcon('pet')" />
                                     </i>
                                 </span>
                                 <span class="u-features">
@@ -881,7 +881,7 @@
                             <a href="/horse" target="_blank">
                                 <span class="u-pic">
                                     <i class="u-icon">
-                                        <img svg-inline :src="getIcon('horse')" />
+                                        <img svg-inline :src="getNewIcon('horse')" />
                                     </i>
                                 </span>
                                 <span class="u-features">
@@ -928,7 +928,7 @@
                             <a href="/furniture" target="_blank">
                                 <span class="u-pic">
                                     <i class="u-icon">
-                                        <img svg-inline :src="getIcon('furniture')" />
+                                        <img svg-inline :src="getNewIcon('furniture')" />
                                     </i>
                                 </span>
                                 <span class="u-features">
@@ -1035,7 +1035,7 @@
                             <a href="/pvg/manufacture" target="_blank">
                                 <span class="u-pic">
                                     <i class="u-icon">
-                                        <img svg-inline :src="getIcon('manufacture')" />
+                                        <img svg-inline :src="getNewIcon('manufacture')" />
                                     </i>
                                 </span>
                                 <span class="u-features">
@@ -1066,7 +1066,7 @@
                             <a href="/pvg/price" target="_blank">
                                 <span class="u-pic">
                                     <i class="u-icon">
-                                        <img svg-inline :src="getIcon('price')" />
+                                        <img svg-inline :src="getNewIcon('price')" />
                                     </i>
                                 </span>
                                 <span class="u-features">
@@ -1081,7 +1081,7 @@
                             <a href="https://jx3.seasunwbl.com/buyer?t=coin" target="_blank">
                                 <span class="u-pic">
                                     <i class="u-icon">
-                                        <img svg-inline :src="getIcon('wbl')" />
+                                        <img svg-inline :src="getNewIcon('wbl')" />
                                     </i>
                                 </span>
                                 <span class="u-features">
@@ -1096,7 +1096,7 @@
                             <a href="https://jx3yq.seasunwbl.com/buyer?t=coin" target="_blank">
                                 <span class="u-pic">
                                     <i class="u-icon">
-                                        <img svg-inline :src="getIcon('wbl')" />
+                                        <img svg-inline :src="getNewIcon('wbl')" />
                                     </i>
                                 </span>
                                 <span class="u-features">
@@ -1113,7 +1113,7 @@
 </template>
 
 <script>
-import { __imgPath } from "@jx3box/jx3box-common/data/jx3box.json";
+import { __imgPath, __cdn } from "@jx3box/jx3box-common/data/jx3box.json";
 import { reportNow } from "@jx3box/jx3box-common/js/reporter";
 export default {
     name: "App",
@@ -1129,7 +1129,11 @@ export default {
     methods: {
         getIcon(key) {
             // return `/logos/${key}.svg`;
+            // return __cdn + "logo-light/" + key + ".svg";
             return __imgPath + "image/box/" + key + ".svg";
+        },
+        getNewIcon(key) {
+            return __cdn + "logo-light/" + key + ".svg";
         },
         handleClick(e) {
             // 取出a标签
