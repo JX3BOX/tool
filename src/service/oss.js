@@ -11,4 +11,11 @@ const $img = axios.create({
     baseURL: __imgPath,
 });
 
-export { $, $img };
+
+// 获取appjson
+const getAppJson = async () => {
+    let res = await $img.get("/logo/app.json");
+    return res.data;
+};
+
+export { $, $img, getAppJson };
