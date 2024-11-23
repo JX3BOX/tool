@@ -11,6 +11,9 @@
             :feedbackEnable="true"
             :crumbEnable="true"
         >
+        <template #logo>
+                <img svg-inline :src="logo" />
+            </template>
             <Info />
         </Breadcrumb>
         <LeftSidebar>
@@ -36,6 +39,7 @@ import Nav from "@/components/list/list_nav.vue";
 import Side from "@/components/list/list_side.vue";
 import Tabs from "@/components/list/list_tabs.vue";
 import ListTop from "@/components/list/list_top.vue";
+import {__cdn} from "@jx3box/jx3box-common/data/jx3box.json";
 export default {
     name: "App",
     props: {
@@ -54,6 +58,7 @@ export default {
     },
     data: function () {
         return {
+            logo: __cdn + "logo/logo-light/jx3dat.svg",
         };
     },
     computed: {

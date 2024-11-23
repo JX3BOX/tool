@@ -93,11 +93,10 @@
 </template>
 
 <script>
-import { __imgPath } from "@jx3box/jx3box-common/data/jx3box.json";
+import { __imgPath, __cdn } from "@jx3box/jx3box-common/data/jx3box.json";
 import { jx3dat_types } from "@/assets/data/types.json";
 import { getMenuGroup, getBread } from "@/service/helper.js";
 import { getConfigBanner } from "@/service/cms";
-import { getAppIcon } from "@jx3box/jx3box-common/js/utils";
 export default {
     name: "list_nav",
     props: [],
@@ -189,7 +188,9 @@ export default {
         this.loadMenu();
     },
     methods: {
-        getAppIcon,
+        getAppIcon(key) {
+            return __cdn + "logo/logo-light/" + key + ".svg";
+        },
         isActive: function (item, routeName) {
             return item.slug == this.$route.query.subtype && this.$route.name == routeName;
         },

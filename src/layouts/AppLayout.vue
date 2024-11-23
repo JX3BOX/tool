@@ -2,6 +2,9 @@
     <div class="p-layout p-layout--app">
         <Header></Header>
         <Breadcrumb :name="title" icon="jx3dat" slug="tool" :root="root" :feedbackEnable="true" :crumbEnable="false">
+            <template v-slot:logo>
+                <img :src="logo" alt="logo" />
+            </template>
         </Breadcrumb>
         <LeftSidebar v-if="hasLeft">
             <slot name="left"></slot>
@@ -55,7 +58,7 @@ export default {
         },
         logo() {
             const key = this.icon || this.slug;
-            return JX3BOX.__imgPath + "image/box/" + key + ".svg";
+            return JX3BOX.__cdn + "logo/logo-light/" + key + ".svg";
         },
         title() {
             return app[this.slug]?.title || this.name;
