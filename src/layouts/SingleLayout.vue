@@ -20,6 +20,9 @@
             <template #title>
                 <span>{{ title }}</span>
             </template>
+            <template #logo>
+                <img svg-inline :src="logo" />
+            </template>
         </Breadcrumb>
         <LeftSidebar :uid="user_id">
             <Nav :id="id" class="m-nav" />
@@ -41,6 +44,7 @@ import { getAppID } from "@jx3box/jx3box-common/js/utils";
 // import AdminDirectMessage from "@jx3box/jx3box-common-ui/src/bread/AdminDirectMessage.vue";
 import AdminDrop from "@jx3box/jx3box-common-ui/src/bread/AdminDrop.vue";
 import User from "@jx3box/jx3box-common/js/user";
+import { __cdn } from "@jx3box/jx3box-common/data/jx3box.json";
 export default {
     name: "SingleLayout",
     props: {
@@ -66,7 +70,9 @@ export default {
                 2: "插件数据",
                 3: "学习笔札",
                 4: "魔盒文档"
-            }
+            },
+
+            logo: __cdn + "logo/logo-light/jx3dat.svg",
         };
     },
     computed: {
