@@ -115,7 +115,7 @@ import singlebox from "@/components/cms-single";
 
 // 本地数据
 import { getPost } from "../../service/post.js";
-import { getStat, postStat, postHistory } from "@jx3box/jx3box-common/js/stat";
+import { getStat, postStat, postHistory, postReadHistory } from "@jx3box/jx3box-common/js/stat";
 import { jx3dat_types } from "../../assets/data/types.json";
 import { appKey } from "../../../setting.json";
 import { getAppIcon, getAppID,resolveImagePath, getLink } from "@jx3box/jx3box-common/js/utils";
@@ -222,12 +222,17 @@ export default {
 
                     document.title = this.post.post_title;
 
-                    User.isLogin() && postHistory({
-                        source_type: appKey,
-                        source_id: this.id,
-                        link: location.href,
-                        title: this.post.post_title,
-                    });
+                    if (User.isLogin()) {
+                        postHistory({
+                            source_type: appKey,
+                            source_id: this.id,
+                            link: location.href,
+                            title: this.post.post_title,
+                        });
+
+                        this.post.visible > 1 && postReadHistory({ id: this.id, category: "posts", subcategory: "default", visible_type: this.post.visible });
+                    }
+
                 })
                 .finally(() => {
                     this.loading = false;
