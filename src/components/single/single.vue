@@ -26,7 +26,7 @@ import { getAppIcon, getAppID } from "@jx3box/jx3box-common/js/utils";
 import User from "@jx3box/jx3box-common/js/user";
 export default {
     name: "single",
-    data: function() {
+    data: function () {
         return {
             loading: false,
             post: {},
@@ -35,25 +35,24 @@ export default {
         };
     },
     computed: {
-        post_subtype: function() {
+        post_subtype: function () {
             let subtype = this.post?.post_subtype;
             return subtype ? types[subtype] : "-";
         },
-        isTool: function() {
+        isTool: function () {
             return this.post?.post_subtype == "1";
         },
     },
-    methods : {
-        updateExtend : function (val){
-            this.$store.state.extend = val
-        }
+    methods: {
+        updateExtend: function (val) {
+            this.$store.state.extend = val;
+        },
     },
-    mounted: function() {
+    mounted: function () {
         if (this.id) {
             this.loading = true;
             getPost(this.id)
                 .then((res) => {
-
                     this.post = this.$store.state.post = res.data.data;
                     this.$store.state.id = this.id;
                     this.$store.state.user_id = this.post?.post_author;
@@ -66,10 +65,19 @@ export default {
                             source_id: ~~this.id,
                             link: location.href,
                             title: this.post.post_title,
+                            author_id: this.post.post_author,
+                            banner: this.post.post_banner,
                         });
-                        this.post.visible > 1 && postReadHistory({ id: this.id, category: "posts", subcategory: "default", visible_type: this.post.visible });
+                        this.post.visible > 1 &&
+                            postReadHistory({
+                                id: this.id,
+                                category: "posts",
+                                subcategory: "default",
+                                visible_type: this.post.visible,
+                                author_id: this.post.post_author,
+                                banner: this.post.post_banner,
+                            });
                     }
-
                 })
                 .finally(() => {
                     this.loading = false;
@@ -83,7 +91,7 @@ export default {
     },
     components: {
         singlebox,
-        'single-meta':single_meta,
+        "single-meta": single_meta,
     },
 };
 </script>

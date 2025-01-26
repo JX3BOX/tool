@@ -23,7 +23,11 @@
                             <i class="el-icon-video-play"></i> 云端同步刷新
                         </a>
                         <span class="u-desc">{{ feed.desc }}</span>
-                        <a class="u-down el-button el-button--default el-button--small is-plain" :href="feed.file | showDown" target="_blank">
+                        <a
+                            class="u-down el-button el-button--default el-button--small is-plain"
+                            :href="feed.file | showDown"
+                            target="_blank"
+                        >
                             <i class="el-icon-download"></i>
                             <span>本地下载</span>
                         </a>
@@ -41,14 +45,20 @@
                         <a
                             class="u-sync"
                             v-if="isAuthor || isEditor"
-                            :href="'https://pull.j3cx.com/api/dbm/feed?key=' + post.author + '-' + feed.name + '&_no_cache'"
+                            :href="
+                                'https://pull.j3cx.com/api/dbm/feed?key=' + post.author + '-' + feed.name + '&_no_cache'
+                            "
                             target="_blank"
                             title="默认存在1分钟缓存，如需要即时生效请点击此按钮"
                         >
                             <i class="el-icon-video-play"></i> 云端同步刷新
                         </a>
                         <span class="u-desc">{{ feed.desc }}</span>
-                        <a class="u-down el-button el-button--default el-button--small is-plain" :href="feed.file | showDown" target="_blank">
+                        <a
+                            class="u-down el-button el-button--default el-button--small is-plain"
+                            :href="feed.file | showDown"
+                            target="_blank"
+                        >
                             <i class="el-icon-download"></i>
                             <span>本地下载</span>
                         </a>
@@ -66,14 +76,20 @@
                         <a
                             class="u-sync"
                             v-if="isAuthor || isEditor"
-                            :href="'https://pull.j3cx.com/api/dbm/feed?key=' + post.author + '-' + feed.name + '&_no_cache'"
+                            :href="
+                                'https://pull.j3cx.com/api/dbm/feed?key=' + post.author + '-' + feed.name + '&_no_cache'
+                            "
                             target="_blank"
                             title="默认存在1分钟缓存，如需要即时生效请点击此按钮"
                         >
                             <i class="el-icon-video-play"></i> 云端同步刷新
                         </a>
                         <span class="u-desc">{{ feed.desc }}</span>
-                        <a class="u-down el-button el-button--default el-button--small is-plain" :href="feed.file | showDown" target="_blank">
+                        <a
+                            class="u-down el-button el-button--default el-button--small is-plain"
+                            :href="feed.file | showDown"
+                            target="_blank"
+                        >
                             <i class="el-icon-download"></i>
                             <span>本地下载</span>
                         </a>
@@ -81,17 +97,35 @@
                 </div>
                 <div class="u-data u-data-add">
                     <div class="u-feed" v-if="meta.github">
-                        <Mark :label="meta.github" value="@github" BGR="@color" BGL="#24292e" @click.native="copy(meta.github + '@github')">
+                        <Mark
+                            :label="meta.github"
+                            value="@github"
+                            BGR="@color"
+                            BGL="#24292e"
+                            @click.native="copy(meta.github + '@github')"
+                        >
                             <img class svg-inline src="@/assets/img/github.svg" />
                         </Mark>
                     </div>
                     <div class="u-feed" v-if="meta.gitee">
-                        <Mark :label="meta.gitee" value="@gitee" BGR="#c71d23" BGL="#24292e" @click.native="copy(meta.gitee + '@github')">
+                        <Mark
+                            :label="meta.gitee"
+                            value="@gitee"
+                            BGR="#c71d23"
+                            BGL="#24292e"
+                            @click.native="copy(meta.gitee + '@github')"
+                        >
                             <img class="u-gitee" svg-inline src="@/assets/img/gitee.svg" />
                         </Mark>
                     </div>
                     <div class="u-feed" v-if="meta.aliyun">
-                        <Mark :label="meta.aliyun" value="@aliyun" BGR="#ff6a00" BGL="#24292e" @click.native="copy(meta.aliyun + '@github')">
+                        <Mark
+                            :label="meta.aliyun"
+                            value="@aliyun"
+                            BGR="#ff6a00"
+                            BGL="#24292e"
+                            @click.native="copy(meta.aliyun + '@github')"
+                        >
                             <img class svg-inline src="@/assets/img/aliyun.svg" />
                         </Mark>
                     </div>
@@ -99,7 +133,12 @@
             </div>
             <div class="u-subtype-other" v-else-if="subtype != 1">
                 <span class="u-typename">数据类型：{{ post_subtype }}</span>
-                <a class="u-download el-button el-button--primary el-button--small" :href="meta.down | showDown" target="_blank" v-if="meta.down">
+                <a
+                    class="u-download el-button el-button--primary el-button--small"
+                    :href="meta.down | showDown"
+                    target="_blank"
+                    v-if="meta.down"
+                >
                     <i class="el-icon-download"></i>
                     <span class="u-long">默认数据下载</span>
                     <span class="u-short">下载</span>
@@ -118,38 +157,37 @@ import { getPost } from "../../service/post.js";
 import { getStat, postStat, postHistory, postReadHistory } from "@jx3box/jx3box-common/js/stat";
 import { jx3dat_types } from "../../assets/data/types.json";
 import { appKey } from "../../../setting.json";
-import { getAppIcon, getAppID,resolveImagePath, getLink } from "@jx3box/jx3box-common/js/utils";
-
+import { getAppIcon, getAppID, resolveImagePath, getLink } from "@jx3box/jx3box-common/js/utils";
 
 // 工具方法
 import User from "@jx3box/jx3box-common/js/user";
 
 export default {
     name: "single",
-    data: function() {
+    data: function () {
         return {
             loading: false,
             post: {},
             stat: {},
 
             meta: {},
-            data : [],
+            data: [],
 
             appKey,
             id: getAppID(),
         };
     },
     computed: {
-        isAuthor: function() {
+        isAuthor: function () {
             return User.getInfo().uid == this.post?.post_author;
         },
-        isEditor : function (){
-            return User.isEditor()
+        isEditor: function () {
+            return User.isEditor();
         },
-        subtype: function() {
+        subtype: function () {
             return this.post?.post_subtype;
         },
-        post_subtype: function() {
+        post_subtype: function () {
             return jx3dat_types?.[this.subtype] || "-";
         },
         visible: function () {
@@ -157,24 +195,24 @@ export default {
         },
     },
     methods: {
-        onCopy: function(val) {
+        onCopy: function (val) {
             this.$notify({
                 title: "订阅号复制成功",
                 message: "复制内容 : " + val.text,
                 type: "success",
             });
         },
-        onError: function() {
+        onError: function () {
             this.$notify.error({
                 title: "复制失败",
                 message: "请手动复制",
             });
         },
-        updateExtend: function(val) {
+        updateExtend: function (val) {
             this.$store.state.extend = val;
         },
         copy(content) {
-            console.log(content)
+            console.log(content);
             navigator.clipboard
                 .writeText(content)
                 .then(() => {
@@ -193,7 +231,7 @@ export default {
         },
     },
     filters: {
-        highlight: function(item) {
+        highlight: function (item) {
             const colormap = {
                 newbie: "#49c10f",
                 advanced: "#fba524",
@@ -205,11 +243,11 @@ export default {
             }
             return "#035cc1";
         },
-        showDown: function(val) {
+        showDown: function (val) {
             return val && resolveImagePath(val);
         },
     },
-    mounted: function() {
+    mounted: function () {
         if (this.id) {
             this.loading = true;
             getPost(this.id)
@@ -228,11 +266,20 @@ export default {
                             source_id: this.id,
                             link: location.href,
                             title: this.post.post_title,
+                            author_id: this.post.post_author,
+                            banner: this.post.post_banner,
                         });
 
-                        this.post.visible > 1 && postReadHistory({ id: this.id, category: "posts", subcategory: "default", visible_type: this.post.visible });
+                        this.post.visible > 1 &&
+                            postReadHistory({
+                                id: this.id,
+                                category: "posts",
+                                subcategory: "default",
+                                visible_type: this.post.visible,
+                                author_id: this.post.post_author,
+                                banner: this.post.post_banner,
+                            });
                     }
-
                 })
                 .finally(() => {
                     this.loading = false;
