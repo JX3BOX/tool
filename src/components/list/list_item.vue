@@ -79,6 +79,9 @@ export default {
     methods: {
         getBanner: function (val, subtype) {
             if (val) {
+                if (val.endsWith(".webp") || val.endsWith(".gif")) {
+                    return val;
+                }
                 return showBanner(val);
             } else {
                 return __imgPath + `image/banner/${this.type}` + subtype + ".png";
