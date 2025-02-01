@@ -19,8 +19,8 @@
                 </div>
             </div>
             <div class="u-desc-text">
-                <p class="u-desc-content" v-html="desc ? desc.toString().replace(/\\n/g, '<br>') : ''"></p>
-                <div class="u-desc-talent" v-if="show_parse && data.parse" v-html="data.parse.talent_desc"></div>
+                <p class="u-desc-content" v-text="desc ? desc.toString().replace(/\\n/g, '<br>') : ''"></p>
+                <div class="u-desc-talent" v-if="show_parse && data.parse" v-text="data.parse.talent_desc"></div>
             </div>
             <div class="u-primary">
                 <span class="u-primary-items">
@@ -53,7 +53,7 @@
                                 {{ fieldLabel(key) }}
                             </em>
                         </el-tooltip>
-                        <span v-html="val ? val.toString().replace(/\\n/g, '，') : ''"></span>
+                        <span v-text="val ? val.toString().replace(/\\n/g, '，') : ''"></span>
                     </span>
                 </template>
             </div>
